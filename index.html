@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:image" content="https://needmorecoffee2.github.io/kr1-html-css-shop/images/preview.jpg">
+  <title>Каталог товаров</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="index.html">
+              Главная
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">
+              Популярные товары
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section js-check" aria-labelledby="js-check-title">
+  <h2 id="js-check-title">Проверка JavaScript</h2>
+  <p class="js-message">JavaScript пока не выполнился.</p>
+  <pre class="product-output"></pre>
+  </section>
+
+  <main id="main">
+    <section class="hero">
+      <h1 class="section__title">Учебный интернет-магазин</h1>
+      <p>
+        Это стартовая страница учебного frontend-проекта.
+      </p>
+      <a class="button" href="#popular">Перейти к товарам</a>
+    </section>
+
+    <div class="table-wrapper">
+      <table class="table" id="advantages">
+        <caption class="table__caption">Преимущества проекта перед конкурентами</caption>
+
+        <thead>
+          <tr>
+            <th class="table__head-th" scope="col"></th>
+            <th class="table__head-th" scope="col">Наш магазин</th>
+            <th class="table__head-th" scope="col">Алиекспресс</th>
+          </tr>
+
+          <tbody>
+            <tr class="table__body-tr">
+              <th class="table__body-th" scope="row">Багет</th>
+              <td class="table__td">Французский</td>
+              <td class="table__td">Китайский</td>
+            </tr>
+            <tr class="table__body-tr">
+              <th class="table__body-th" scope="row">Чай</th>
+              <td class="table__td">Я пробовал чай ЛДПР. Очень вкуссный, советую</td>
+              <td class="table__td">Какая-то китайская фигня</td>
+            </tr>
+            <tr class="table__body-tr">
+              <th class="table__body-th" scope="row">Доставка</th>
+              <td class="table__td">2-3 дня по всей России</td>
+              <td class="table__td">От месяца</td>
+            </tr>
+          </tbody>
+        </thead>
+      </table>
+    </div>
+
+    <section class="section" id="popular">
+      <h2 class="section__title">Популярные товары</h2>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <h3 class="product-card__title">Чай</h3>
+          <img class="product-card__img" src="images/tea.webp" alt="Чай">
+          <p class="product-card__description">Вкусный чай от Жириновского.</p>
+          <p class="product-card__price">Цена: 235 руб.</p>
+          <a class="button button--primary product-card__button" type="button" href="product.html?id=3" data-product="3">Заказать</a>
+        </article>
+
+        <article class="product-card">
+          <h3 class="product-card__title">Baby Yoda</h3>
+          <img class="product-card__img" src="images/BY.webp" alt="Йода">
+          <p class="product-card__description">Фигурка малыша Йоды.</p>
+          <p class="product-card__price">Цена: 3999 руб.</p>
+          <a class="button button--primary product-card__button" type="button" href="product.html?id=1" data-product="1">Заказать</a>
+        </article>
+
+        <article class="product-card">
+          <h3 class="product-card__title">Teto</h3>
+          <img class="product-card__img" src="images/Banner.webp" alt="Teto">
+          <p class="product-card__description">Лучший повар, сделает вам самый вкусный французский багет.</p>
+          <p class="product-card__price">Цена: 6700 руб.</p>
+          <a class="button button--primary product-card__button" type="button" href="product.html?id=5" data-product="5">Заказать</a>
+        </article>
+
+        <article class="product-card">
+          <h3 class="product-card__title">Багет из франции</h3>
+          <img class="product-card__img" src="images/France.webp" alt="Чай">
+          <p class="product-card__description">Немного чёрствый, но всё же из Франции.</p>
+          <p class="product-card__price">Цена: 500 руб.</p>
+          <a class="button button--primary product-card__button" type="button" href="product.html?id=6" data-product="6">Заказать</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- <aside class="aside-info">
+      <h2>Информация для студентов</h2>
+      <p>
+        На следующих практических занятиях этот проект будет расширяться:
+        появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
+        БЭМ-структура и адаптивная версия сайта.
+      </p>
+    </aside> -->
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>

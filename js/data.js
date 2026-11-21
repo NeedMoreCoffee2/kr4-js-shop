@@ -1,0 +1,7 @@
+const products = [{id: 1, title: "Baby Yoda", content: "Фигурка малыша Йоды", price: 3999, img: "./images/BY.webp", hight: "160 мм" , weight: "1 кг", material: "ПВХ",  producer: "Николай Загородних", isAvailable: true, sale: 10},
+                  {id: 2, title: "Книга классная, поучительная", content: "Реально поучительная", price: 100, img: "./images/Book.webp", hight: "160 мм" , weight: "1 кг", material: "Резина",  producer: "FuRyu", isAvailable: true, sale: 0},
+                  {id: 3, title: "Чай", content: "Вкусный чай от Жириновского", price: 235, img: "./images/tea.webp", hight: "50 мм" , weight: "0.2 кг", material: "Суперские чайные листья, отвечаю",  producer: "Alter", isAvailable: true, sale: 0},
+                  {id: 4, title: "Уилл", content: 'Мини-фигурка Уилла из игры "Baldur`s Gate 3"', price: 1789, img: "./images/BG3.webp", hight: "100 мм" , weight: "0.5 кг", material: "АБС-пластик",  producer: "Good Smile Company", isAvailable: true, sale: 0},
+                  {id: 5, title: "Teto", content: "Лучший повар, сделает вам самый вкусный французский багет", price: 6700, img: "./images/Banner.webp", hight: "140 мм" , weight: "0.4 кг", material: "АБС, ПВХ",  producer: "FuRyu", isAvailable: true, sale: 0},
+                  {id: 6, title: "Багет из Франции", content: "Немного чёрствый, но всё же из Франции", price: 500, img: "./images/France.webp", hight: "300 мм" , weight: "0.8 кг", material: "Пшеница высшего сорта",  producer: "Apex", isAvailable: true, sale: 0}
+];
