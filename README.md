@@ -45,6 +45,7 @@ kr4-js-shop/
 ├── images/
 ├── README.md
 └── .gitignore
+```
 
 ## Практическая работа №16
 
@@ -95,4 +96,5 @@ kr4-js-shop/
 ## Примечание к безопасности
 
 Пользовательские данные, данные формы, данные из `localStorage` и данные будущего API не вставляются через `innerHTML`. Для текстового вывода используется `textContent`.
-[Ссылка на Pages:](https://needmorecoffee2.github.io/kr4-js-shop/)
+
+[Ссылка на Pages](https://needmorecoffee2.github.io/kr4-js-shop/)
