@@ -41,7 +41,7 @@ content.classList.add("card-all-list__text-item");
 
 const price = document.createElement("p");
 // price.textContent = "Цена: " + product.price + "руб.";
-price.textContent = `Цена: ${product.price + product.price * product.sale / 100} руб.`;
+price.textContent = `Цена: ${product.price - product.price * product.sale / 100} руб.`;
 if(product.sale !== 0) price.classList.add('success');
 price.classList.add("card-all-list__text-item");
 
