@@ -1,10 +1,10 @@
-const products = [{id: 1, title: "Baby Yoda", content: "Фигурка малыша Йоды", price: 3999, img: "./images/BY.webp", hight: "160 мм" , weight: "1 кг", material: "ПВХ",  producer: "Николай Загородних", isAvailable: true, sale: 10},
-                  {id: 2, title: "Книга классная, поучительная", content: "Реально поучительная", price: 100, img: "./images/Book.webp", hight: "160 мм" , weight: "1 кг", material: "Резина",  producer: "FuRyu", isAvailable: true, sale: 0},
-                  {id: 3, title: "Чай", content: "Вкусный чай от Жириновского", price: 235, img: "./images/tea.webp", hight: "50 мм" , weight: "0.2 кг", material: "Суперские чайные листья, отвечаю",  producer: "Alter", isAvailable: true, sale: 0},
-                  {id: 4, title: "Уилл", content: 'Мини-фигурка Уилла из игры "Baldur`s Gate 3"', price: 1789, img: "./images/BG3.webp", hight: "100 мм" , weight: "0.5 кг", material: "АБС-пластик",  producer: "Good Smile Company", isAvailable: false, sale: 0},
-                  {id: 5, title: "Teto", content: "Лучший повар, сделает вам самый вкусный французский багет", price: 6700, img: "./images/Banner.webp", hight: "140 мм" , weight: "0.4 кг", material: "АБС, ПВХ",  producer: "FuRyu", isAvailable: true, sale: 0},
-                  {id: 6, title: "Багет из Франции", content: "Немного чёрствый, но всё же из Франции", price: 500, img: "./images/France.webp", hight: "300 мм" , weight: "0.8 кг", material: "Пшеница высшего сорта",  producer: "Apex", isAvailable: true, sale: 0}
-];
+// const products = [{id: 1, title: "Baby Yoda", content: "Фигурка малыша Йоды", price: 3999, img: "./images/BY.webp", hight: "160 мм" , weight: "1 кг", material: "ПВХ",  producer: "Николай Загородних", isAvailable: true, sale: 10},
+//                   {id: 2, title: "Книга классная, поучительная", content: "Реально поучительная", price: 100, img: "./images/Book.webp", hight: "160 мм" , weight: "1 кг", material: "Резина",  producer: "FuRyu", isAvailable: true, sale: 0},
+//                   {id: 3, title: "Чай", content: "Вкусный чай от Жириновского", price: 235, img: "./images/tea.webp", hight: "50 мм" , weight: "0.2 кг", material: "Суперские чайные листья, отвечаю",  producer: "Alter", isAvailable: true, sale: 0},
+//                   {id: 4, title: "Уилл", content: 'Мини-фигурка Уилла из игры "Baldur`s Gate 3"', price: 1789, img: "./images/BG3.webp", hight: "100 мм" , weight: "0.5 кг", material: "АБС-пластик",  producer: "Good Smile Company", isAvailable: false, sale: 0},
+//                   {id: 5, title: "Teto", content: "Лучший повар, сделает вам самый вкусный французский багет", price: 6700, img: "./images/Banner.webp", hight: "140 мм" , weight: "0.4 кг", material: "АБС, ПВХ",  producer: "FuRyu", isAvailable: true, sale: 0},
+//                   {id: 6, title: "Багет из Франции", content: "Немного чёрствый, но всё же из Франции", price: 500, img: "./images/France.webp", hight: "300 мм" , weight: "0.8 кг", material: "Пшеница высшего сорта",  producer: "Apex", isAvailable: true, sale: 0}
+// ];
 
 // import {  }
 
@@ -40,7 +40,9 @@ content.textContent = product.content;
 content.classList.add("card-all-list__text-item");
 
 const price = document.createElement("p");
-price.textContent = "Цена: " + product.price + "руб.";
+// price.textContent = "Цена: " + product.price + "руб.";
+price.textContent = `Цена: ${product.price + product.price * product.sale / 100} руб.`;
+if(product.sale !== 0) price.classList.add('success');
 price.classList.add("card-all-list__text-item");
 
 
@@ -69,11 +71,17 @@ producer.textContent = "Изготовитель: " + product.producer;
 producer.classList.add("card-all-list__text-item");
 
 const button = document.createElement("button");
-button.textContent = "Купить";
+button.textContent = "В корзину";
 button.classList.add("button", "button--primary", "product-card__button", "card-all-list__button");
-button.dataset.product = product.id;
+button.dataset.product = String(product.id);
+button.dataset.action = 'add-to-cart';
 button.type = button;
 // button.dataset.product = String(product.id);
+
+if (!product.isAvailable) {
+    button.disabled = true;
+    button.textContent = 'Нет в наличии';
+  }
 
 div.append(img);
 //aside.append(asideTitle, hight, weight, material, producer);
@@ -85,3 +93,46 @@ mom.append(div, section);
 
 const point = document.querySelector("#card-all-list");
 point.append(mom);
+
+
+const cartCounter = document.querySelector('.cart-counter');
+const cartItems = 'cartItems';
+
+// function updateCartCounter() {
+//   if (cartCounter) {
+//     cartCounter.textContent = `Корзина. Товаров: ${localStorage.length}`;
+//   }
+// }
+
+function findProductById(products, id) {
+  return products.find((product) => product.id === id);
+}
+
+if (productID) {
+    button.addEventListener('click', (event) => {
+        cartCounter.textContent = `Корзина. Товаров: ${localStorage.length}`;
+
+        const selectedProduct = products.find((product) => product.id === productID);
+
+        if (!selectedProduct) {
+        console.warn('Товар не найден:', productID);
+        return;
+        }
+
+        console.log(`Товар добавлен в корзину: ${selectedProduct.title}`);
+
+        // cartItems.push(selectedProduct);
+        const rawArray = localStorage.getItem(cartItems);
+        let array = rawArray ? JSON.parse(rawArray) : [];
+
+        if(!findProductById(array, productID)) array.push(selectedProduct);     //localStorage.setItem(String(productID), selectedProduct);
+        else {
+            // array[productID - 1].count += 1;
+            const productIndex = array.findIndex((product) => product.id === productID);
+            array[productIndex].count += 1;
+        }
+        localStorage.clear();
+        localStorage.setItem('cartItems', JSON.stringify(array));
+        updateCartCounter();
+    });
+}
