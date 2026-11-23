@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://NeedMoreCoffee2.github.io/kr1-html-css-shop/</loc>
+    <loc>https://NeedMoreCoffee2.github.io/kr4-js-shop/</loc>
   </url>
   <url>
-    <loc>https://NeedMoreCoffee2.github.io/kr1-html-css-shop/index.html</loc>
+    <loc>https://NeedMoreCoffee2.github.io/kr4-js-shop/index.html</loc>
   </url>
   <url>
-    <loc>https://NeedMoreCoffee2.github.io/kr1-html-css-shop/catalog.html</loc>
+    <loc>https://NeedMoreCoffee2.github.io/kr4-js-shop/catalog.html</loc>
   </url>
   <url>
-    <loc>https://NeedMoreCoffee2.github.io/kr1-html-css-shop/contacts.html</loc>
+    <loc>https://NeedMoreCoffee2.github.io/kr4-js-shop/contacts.html</loc>
   </url>
   <url>
-    <loc>https://NeedMoreCoffee2.github.io/kr1-html-css-shop/product.html</loc>
+    <loc>https://NeedMoreCoffee2.github.io/kr4-js-shop/product.html</loc>
   </url>
   <url>
-    <loc>https://NeedMoreCoffee2.github.io/kr1-html-css-shop/order.html</loc>
+    <loc>https://NeedMoreCoffee2.github.io/kr4-js-shop/order.html</loc>
+  </url>
+  <url>
+    <loc>https://NeedMoreCoffee2.github.io/kr4-js-shop/shopping-cart.html</loc>
   </url>
 </urlset>

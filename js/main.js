@@ -10,7 +10,7 @@ function calculateDiscount(price, salePercent) {
 
 const discountValue = calculateDiscount(products[0].price, products[0].sale);
 
-console.log(discountValue);
+// console.log(discountValue);
 
 
 function calculateFinalPrice(price, discountPercent) {
@@ -20,7 +20,7 @@ function calculateFinalPrice(price, discountPercent) {
 
 const finalPrice = calculateFinalPrice(products[0].price, products[0].sale);
 
-console.log(finalPrice);
+// console.log(finalPrice);
 
 
 function getProductStatus(product) {
@@ -31,7 +31,7 @@ function getProductStatus(product) {
   return 'Нет в наличии';
 }
 
-console.log(getProductStatus(products[0]));
+// console.log(getProductStatus(products[0]));
 
 
 // function createProductSummary(product) {
@@ -52,7 +52,7 @@ console.log(getProductStatus(products[0]));
 // productOutputElement.textContent = productSummary;
 
 ///////////////////////////////////
-console.log(1);
+// console.log(1);
 
 function getProductTitles(products) {
   return products.map((product) => product.title);
@@ -60,7 +60,7 @@ function getProductTitles(products) {
 
 const productTitles = getProductTitles(products);
 
-console.log(productTitles);
+// console.log(productTitles);
 
 
 function getAvailableProducts(products) {
@@ -69,7 +69,7 @@ function getAvailableProducts(products) {
 
 const availableProducts = getAvailableProducts(products);
 
-console.table(availableProducts);
+// console.table(availableProducts);
 
 
 function searchProducts(products, query) {
@@ -86,7 +86,7 @@ function searchProducts(products, query) {
 
 const searchResult = searchProducts(products, 'из франц');
 
-console.table(searchResult);
+// console.table(searchResult);
 
 
 function filterProductsAll(products) {
@@ -95,7 +95,7 @@ function filterProductsAll(products) {
 
 const AllProducts = filterProductsAll(products);
 
-console.table(AllProducts);
+// console.table(AllProducts);
 
 function filterIsAlailable(products) {
     return getAvailableProducts(products);
@@ -105,8 +105,8 @@ function filterIsSale(products) {
     return products.filter((product) => product.sale !== 0);
 }
 
-console.table(filterIsAlailable(products));
-console.table(filterIsSale(products));
+// console.table(filterIsAlailable(products));
+// console.table(filterIsSale(products));
 
 function sortProductsByPrice(products, direction = 'default') {
   const productsCopy = [...products];
@@ -124,7 +124,7 @@ function sortProductsByPrice(products, direction = 'default') {
 
 const productsSortedByPrice = sortProductsByPrice(products, 'asc');
 
-console.table(productsSortedByPrice);
+// console.table(productsSortedByPrice);
 
 
 function findProductById(products, id) {
@@ -133,11 +133,11 @@ function findProductById(products, id) {
 
 const selectedProduct = findProductById(products, 3);
 
-if (selectedProduct) {
-  console.log(`Найден товар: ${selectedProduct.title}`);
-} else {
-  console.log('Товар не найден');
-}
+// if (selectedProduct) {
+//   console.log(`Найден товар: ${selectedProduct.title}`);
+// } else {
+//   console.log('Товар не найден');
+// }
 
 function calculateTotalPrice(products) {
   return products.reduce((sum, product) => {
@@ -147,7 +147,7 @@ function calculateTotalPrice(products) {
 
 const totalPrice = calculateTotalPrice(products);
 
-console.log(totalPrice);
+// console.log(totalPrice);
 
 function countAvailableProducts(products) {
   return products.filter((product) => product.isAvailable).length;
@@ -155,7 +155,7 @@ function countAvailableProducts(products) {
 
 const availableCount = countAvailableProducts(products);
 
-console.log(availableCount);
+// console.log(availableCount);
 
 
 function calculateAveragePrice(products) {
@@ -169,7 +169,7 @@ function calculateAveragePrice(products) {
 
 const averagePrice = calculateAveragePrice(products);
 
-console.log(averagePrice);
+// console.log(averagePrice);
 
 
 // function getPreparedProducts(products, catalogState) { //products, query, filters, sortDirection
@@ -198,7 +198,7 @@ console.log(averagePrice);
 const messageElement = document.querySelector('.js-message');
 const productOutputElement = document.querySelector('.product-output');
 if (messageElement) {
-  messageElement.textContent = 'Массив товаров и функции обработки данных подключены.';
+    messageElement.textContent = 'Массив товаров и функции обработки данных подключены.';
 }
 
 if (productOutputElement) {
@@ -217,7 +217,7 @@ function formatPrice(price) {
 }
 
 
-console.log(formatPrice(2000000000));
+// console.log(formatPrice(2000000000));
 
 
 // function createProductCard(product) {
