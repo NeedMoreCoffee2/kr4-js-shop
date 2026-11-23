@@ -45,7 +45,7 @@ function createProductCard(product) {
 
   const price = document.createElement('p');
   price.classList.add('product-card__price');
-  price.textContent = formatPrice(product.price + product.price * product.sale / 100);
+  price.textContent = formatPrice(product.price - product.price * product.sale / 100);
 
   const status = document.createElement('p');
   status.classList.add('product-card__status');

@@ -40,7 +40,7 @@ function createProductCard(product) {
   const price = document.createElement('p');
   price.classList.add('product-card__price');
   const copy = Number(product.price);
-  price.textContent = `Цена за все копии: ${formatPrice(copy + copy * product.sale / 100)}`;
+  price.textContent = `Цена за все копии: ${formatPrice((copy - copy * product.sale / 100) * product.count)}`;
   if(product.sale !== 0) price.classList.add('success');
 
   const status = document.createElement('p');
