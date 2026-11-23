@@ -1,8 +1,8 @@
-function formatPrice(price) {
-  return `${price} руб.`;
-}
+// function formatPrice(price) {
+//   return `${price} руб.`;
+// }
 
-console.log(formatPrice(products[0].price));
+// console.log(formatPrice(products[0].price));
 
 function calculateDiscount(price, salePercent) {
   return price * salePercent / 100;
@@ -34,16 +34,16 @@ function getProductStatus(product) {
 console.log(getProductStatus(products[0]));
 
 
-function createProductSummary(product) {
-  const finalPrice = calculateFinalPrice(product.price, product.sale);
-  const status = getProductStatus(product);
+// function createProductSummary(product) {
+//   const finalPrice = calculateFinalPrice(product.price, product.sale);
+//   const status = getProductStatus(product);
 
-  return `${product.title}: ${formatPrice(finalPrice)} Статус: ${status}.`;
-}
+//   return `${product.title}: ${formatPrice(finalPrice)} Статус: ${status}.`;
+// }
 
-const productSummary = createProductSummary(products[0]);
+// const productSummary = createProductSummary(products[0]);
 
-console.log(productSummary);
+// console.log(productSummary);
 
 
 // const messageElement = document.querySelector('.js-message');
@@ -108,14 +108,18 @@ function filterIsSale(products) {
 console.table(filterIsAlailable(products));
 console.table(filterIsSale(products));
 
-function sortProductsByPrice(products, direction = 'asc') {
+function sortProductsByPrice(products, direction = 'default') {
   const productsCopy = [...products];
 
-  if (direction === 'desc') {
-    return productsCopy.sort((a, b) => b.price - a.price);
+  if (direction === 'default') return productsCopy;
+
+  if (direction === 'price-asc') {
+    return productsCopy.sort((a, b) => a.price - b.price);
   }
 
-  return productsCopy.sort((a, b) => a.price - b.price);
+  if (direction === 'price-desc') {
+    return productsCopy.sort((a, b) => b.price - a.price);
+  }
 }
 
 const productsSortedByPrice = sortProductsByPrice(products, 'asc');
@@ -168,22 +172,27 @@ const averagePrice = calculateAveragePrice(products);
 console.log(averagePrice);
 
 
-function getPreparedProducts(products, query, filters, sortDirection) {
-  let result = [...products];
+// function getPreparedProducts(products, catalogState) { //products, query, filters, sortDirection
+//   let result = [...products];
 
-  //if (!filters[0]) result = filterProductsAll(products);
-  if (filters[1]) result = filterIsAlailable(products);
-  if (filters[2]) result = filterIsSale(products);
-  result = searchProducts(result, query);
-  //result = filterProductsByCategory(result, category);
-  result = sortProductsByPrice(result, sortDirection);
+//   if (catalogState.filters[0]) result = filterProductsAll(result);
+//   if (catalogState.filters[1]) result = filterIsAlailable(result);
+//   if (catalogState.filters[2]) result = filterIsSale(result);
+//   result = searchProducts(result, catalogState.query);
+//   if(catalogState.price[0]) {
+//     result = result.filter((product) => product.price >= catalogState.price);
+//   }
+//   if(catalogState.price[1]) {
+//     result = result.filter((product) => product.price <= catalogState.price);
+//   }
+//   result = sortProductsByPrice(result, catalogState.sort);
 
-  return result;
-}
+//   return result;
+// }
 
-const preparedProducts = getPreparedProducts(products, '', [false, true, false], 'asc');
+// const preparedProducts = getPreparedProducts(products, '', [false, true, false], 'asc');
 
-console.table(preparedProducts);
+// console.table(preparedProducts);
 
 
 const messageElement = document.querySelector('.js-message');
@@ -200,3 +209,68 @@ if (productOutputElement) {
     `Результатов поиска "гет": ${searchProducts(products, 'гет').length}`
   ].join('\n');
 }
+
+//////////////////////////////////
+
+function formatPrice(price) {
+  return `${price.toLocaleString('ru-RU')} руб.`;
+}
+
+
+console.log(formatPrice(2000000000));
+
+
+// function createProductCard(product) {
+//   const card = document.createElement('article');
+//   card.classList.add('product-card');
+
+//   const image = document.createElement('img');
+//   image.classList.add('product-card__image');
+//   image.src = product.img;
+//   image.alt = product.title;
+
+//   const title = document.createElement('h3');
+//   title.classList.add('product-card__title');
+//   title.textContent = product.title;
+
+//   const description = document.createElement('p');
+//   description.classList.add('product-card__description');
+//   description.textContent = product.content;
+
+//   const price = document.createElement('p');
+//   price.classList.add('product-card__price');
+//   price.textContent = formatPrice(product.price);
+
+//   const status = document.createElement('p');
+//   status.classList.add('product-card__status');
+//   status.textContent = product.isAvailable ? 'В наличии' : 'Нет в наличии';
+
+//   const button = document.createElement('button');
+//   button.classList.add('button button--primary product-card__button');
+//   button.type = 'button';
+//   button.textContent = 'В корзину';
+//   button.dataset.action = 'add-to-cart';
+//   button.dataset.productId = String(product.id);
+
+//   if (!product.isAvailable) {
+//     button.disabled = true;
+//     button.textContent = 'Недоступно';
+//   }
+
+//   const a = document.createElement('a');
+//   a.classList.add('button button--secondary product-card__button');
+//   a.type = 'button';
+//   a.textContent = 'Подробнее'
+//   a.href = `product.html?${String(product.id)}`;
+//   a.dataset.productId = String(product.id);
+
+//   const div = createElement('div');
+//   div.classList.add("card-all-list");
+
+//   div.append(button, a);
+//   card.append(image, title, description, price, status, div);
+
+//   return card;
+// }
+
+

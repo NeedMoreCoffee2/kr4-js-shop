@@ -7,14 +7,22 @@
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
   <meta property="og:image" content="https://needmorecoffee2.github.io/kr1-html-css-shop/images/preview.jpg">
-  <title>Вопросы</title>
+  <title>Вопросы — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/shopping-count.js" defer></script>
+  <script src="js/validation.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <div class="site-header__inner">
+        <div class="shopping-nav-block">
+          <a class="site-header__logo" href="index.html">ShopProject</a>
+          <a id="shopping-count" class="shopping-nav cart-counter site-nav__link site-nav__link--active" aria-live="polite" href="shopping-cart.html">Корзина.</a>
+        </div>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
@@ -67,6 +75,7 @@
             autocomplete="given-name"
             required
             >
+            <p class="form-error" id="order-name-error" hidden></p>
         </div>
 
         <div class="order-form__field question-form__item">
@@ -80,6 +89,7 @@
             autocomplete="email"
             required
             >
+            <p class="form-error" id="order-email-error" hidden></p>
         </div>
 
         <div class="order-form__field question-form__item">
@@ -95,6 +105,7 @@
             required
             >
             <small class="order-form__small">Формат: +7 (900) 000-00-00</small>
+            <p class="form-error" id="order-phone-error" hidden></p>
         </div>
 
         <div class="order-form__field question-form__item">
@@ -143,6 +154,8 @@
         <div class="order-form__actions question-form__item">
             <button class="button button--primary" type="submit">Отправить заявку</button>
         </div>
+
+        <p class="form-message" aria-live="polite" hidden></p>
         </form>
     </section>
   </main>

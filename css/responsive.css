@@ -142,15 +142,21 @@ body {
 
 @media (min-width: 768px) {
   .catalog-layout {
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 3fr 9fr; /*240px minmax(0, 1fr);*/ /*repeat(12, minmax(0, 1fr));*/
     align-items: start;
   }
 
   .catalog-filters {
+    /* grid-column: span 3; */
     position: sticky;
-    top: 184px; /* 88px */
+    align-self: start;
+    top: 220px;
     order: initial;
   }
+
+  /* .products-grid {
+    grid-column: span 9;
+  } */
 }
 
 .product-card__img {
@@ -258,4 +264,107 @@ body {
 
 .card-all-list {
   width: 100%;
+}
+
+.buttons-block {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  .shopping-card {
+    flex-direction: row;
+  }
+
+  .shop-content-block {
+    align-items: start;
+
+  }
+  
+
+}
+
+@media (min-width: 768px) and (max-width: 868px) {
+  .buttons-block {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1024px) {
+  .buttons-block {
+    flex-direction: column;
+  }
+}
+
+/* @media (765px <= width <= 868px) and (1024px <= width <= 1140px) and (1280px <= width) {
+  .buttons-block {
+    flex-direction: column;
+  }
+} */
+
+.shopping-card {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-surface-accent);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.shop-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.shop-buttons-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.shoppy {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .shopping-card {
+    flex-direction: row;
+  }
+
+  .shop-content-block {
+    margin-right: auto;
+  }
+
+  .shop-buttons-block {
+    flex-direction: row;
+    margin-left: auto;
+  }
+}
+
+.shopping-nav-block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-sm);
+}
+
+.shopping-nav {
+  margin: auto;
+}
+
+@media (min-width: 640px) {
+  .shopping-nav-block{
+    flex-direction: row;
+  }
+
+  .shopping-nav {
+  margin: 0 0 0 auto;
+  }
 }

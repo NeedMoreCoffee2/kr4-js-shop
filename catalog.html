@@ -11,15 +11,21 @@
   <title>Каталог товаров — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/shopping-count.js" defer></script>
   <script src="js/data.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/catalog.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <div class="shopping-nav-block">
+        <a class="site-header__logo" href="index.html">ShopProject</a>
+        <a id="shopping-count" class="shopping-nav cart-counter site-nav__link site-nav__link--active" aria-live="polite" href="shopping-cart.html">Корзина.</a>
+      </div>
+      <!-- <a class="site-header__logo" href="index.html">ShopProject</a> -->
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
@@ -53,14 +59,7 @@
       <span class="breadcrumbs__current">Каталог</span>
     </nav>
 
-    <section class="section">
-      <h1 class="section__title">Каталог товаров</h1>
-      <p>
-        На этой странице представлен учебный каталог товаров.
-        В дальнейшем здесь будут добавлены фильтры, сортировка и более
-        подробные карточки.
-      </p>
-    </section>
+    <!-- <p class="cart-counter" aria-live="polite">В корзине: 0</p> -->
 
     <div class="title">
       <h2>Список товаров</h2>
@@ -72,21 +71,32 @@
 
         <form class="filters-form" action="#" method="get">
           <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Поиск</legend>
+            <input
+              id="catalog-search"
+              class="filters-form__input"
+              type="search"
+              placeholder="Введите название товара"
+              autocomplete="off"
+            >
+          </fieldset>
+
+          <fieldset class="filters-form__fieldset">
             <legend class="filters-form__legend">Категория</legend>
 
             <label class="filters-form__label">
-              <input class="filters-form__input" type="checkbox" name="category" value="all">
+              <input id="all" class="filters-form__input" type="checkbox" name="category" value="all">
               Все товары
             </label>
 
             <label class="filters-form__label">
-              <input class="filters-form__input" type="checkbox" name="category" value="popular">
-              Популярные
+              <input id="sales" class="filters-form__input" type="checkbox" name="category" value="sales">
+              Скидки
             </label>
 
             <label class="filters-form__label">
-              <input class="filters-form__input" type="checkbox" name="category" value="new">
-              Новинки
+              <input id="inStock" class="filters-form__input" type="checkbox" name="category" value="inStock">
+              В наличии
             </label>
           </fieldset>
 
@@ -100,7 +110,25 @@
             <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
           </fieldset>
 
-          <button class="button button--primary" type="submit">Применить</button>
+          <fieldset class="filters-form__fieldset">
+            <legend class="filters-form__legend">Сортировка</legend>
+            <select
+            id="sort-select"
+            class="filters-form__input"
+            type="select"
+            >
+            <option value="default">По умолчанию</option>
+            <option value="price-asc">Сначала дешевле</option>
+            <option value="price-desc">Сначала дороже</option>
+            <!-- <option value="title-asc">По названию А-Я</option> -->
+          </select>
+
+          </fieldset>
+
+          <!-- <button class="button button--primary" type="submit">Применить</button> -->
+
+          <p class="catalog-count" aria-live="polite"></p>
+          <p class="catalog-empty" hidden>По выбранным условиям товары не найдены.</p>
         </form>
       </aside>
 
@@ -111,7 +139,7 @@
           <!-- <section class="section"> -->
             <!-- <h2 class="section__title">Список товаров</h2> -->
 
-            <article class="product-card">
+            <!-- <article class="product-card">
               <h3 class="product-card__title">Baby Yoda</h3>
               <img class="product-card__img" src="images/BY.webp" alt="Йода">
               <p class="product-card__description">Фигурка малыша Йоды.</p>
@@ -157,7 +185,7 @@
               <p class="product-card__description">Немного чёрствый, но всё же из Франции.</p>
               <p class="product-card__price">Цена: 500 руб.</p>
               <a class="button button--primary product-card__button" type="button" href="product.html?id=6" data-product="6">Заказать</a>
-            </article>
+            </article> -->
           <!-- </section> -->
         </div>
       </section>
